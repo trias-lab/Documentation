@@ -288,9 +288,7 @@ $PROPERTY_KEY: $PROPERTY_VALUE,
 }
 ```
 
-其中第一行定义了一个名为$**PROGRAM_NAME**的程序说明结构（**PROGRAM**），从第二行起，定义了该程序的各类属性（$**PROPERTY_KEY**）的目标值（$**PROPERTY_VALUE**）。
-
-$**PROPERTY_KEY** 可由系统预定义，也可以是 **Prometh**验证着所达成共识的属性标签。这里简述几类常用的预定义属性。
+其中第一行定义了一个名为$**PROGRAM_NAME**的程序说明结构（**PROGRAM**），从第二行起，定义了该程序的各类属性（$**PROPERTY_KEY**）的目标值（$**PROPERTY_VALUE**）。$**PROPERTY_KEY** 可由系统预定义，也可以是 **Prometh**验证着所达成共识的属性标签。这里简述几类常用的预定义属性。
 
 **ID** 该属性定义了程序的唯一身份标识符。
 
@@ -309,9 +307,7 @@ $PROPERTY_KEY: $PROPERTY_VALUE,
 }
 ```
 
-其中第一行定义了一个名为$**DATA_NAME**的数据说明结构（**DATA**），从第二行起，定义了该端数据的各类属性（$**PROPERTY_KEY**）的目标值（$**PROPERTY_VALUE**）。
-
-$**PROPERTY_KEY** 可由系统预定义，也可以是 **MagCarta**用户自定义的属性标签。这里简述几类常用的预定义属性。
+其中第一行定义了一个名为$**DATA_NAME**的数据说明结构（**DATA**），从第二行起，定义了该端数据的各类属性（$**PROPERTY_KEY**）的目标值（$**PROPERTY_VALUE**）。$**PROPERTY_KEY** 可由系统预定义，也可以是 **MagCarta**用户自定义的属性标签。这里简述几类常用的预定义属性。
 
 **ID** 该属性定义了该段数据的唯一身份标识符。
 

@@ -575,15 +575,13 @@ TRIAS从根本上解决了该问题。每个产业链上的节点不需要传输
 
 TRIAS用三方面的Token激励机制，实现了对Leviatom网络的可信算力节点、Prometh框架的安全验证节点、以及MagCarta合约的开发者的激励。
 
-**Leviatiom社区** 在Leviatom网络中，第一层算力节点通过不断验证周围节点（一到三层）的TEE可信状态，挖掘第三层算力节点并用持续高频的重复验证，确保目标节点始终处于可信的状态。第一层算力节点是构成Leviatom网络的基础，尤其在网络初建期，第一层节点的规模与活跃度将决定网络的健壮性。因此，第一层节点将有可能通过此类“安全验证即挖矿”挖掘出新的Token。第二层算力节点实现了对全网算力可信性的汇总、传递、和路由。它们也将会因为此贡献获得Token奖励。第三层节点执行MagCarta分发的应用程序，若结果正确，将有机会获得MagCarta Call所定义的奖励Token。由于第三层节点的执行权是由第一、第二层节点通过贡献运算、存储、带宽获得，第三层节点将把所得的部分Token用于主动奖励参与挖矿或传播的那些节点。
+**Leviatiom社区** 在Leviatom网络中，第一层算力节点通过不断验证周围节点（一到三层）的TEE可信状态，挖掘出第三层算力节点，并用持续高频的重复验证，确保目标节点始终处于可信的状态。第一层算力节点是构成Leviatom网络的基础，尤其在网络初建期，第一层节点的规模与活跃度将决定网络的健壮性。因此，第一层节点将有可能通过此类“安全验证即挖矿”挖掘出新的Token。第二层算力节点实现了对全网算力可信性的汇总、传递、和路由。它们也将会因为此贡献获得Token奖励。第三层节点执行MagCarta分发的应用程序，若结果正确，将有机会获得MagCarta Consensus所定义的奖励Token。由于第三层节点的执行权是由第一、第二层节点通过贡献运算、存储、带宽获得，第三层节点将把所得的部分Token用于主动奖励参与挖矿或传播的部分节点。
 
-**Prometh社区** Prometh应用程序为了实现可溯源与自动化安全分析，也需要号召社区的力量，通过贡献算力、安全验证程序等，为程序的安全性背书。因此在Prometh体系构建的初期，也需要利用挖矿机制，实现对志愿者的激励。具体而言，即允许开发者或安全分析人员在对软件源码（或中间态的二进制文件）实施安全验证的自动化分析、测试程序时，能有机会获得新生成的Token。
-
-同时，由于Prometh无法保障复杂的原生应用绝无漏洞（但其强审计+溯源体系可确保所有漏洞均可在有限时间内被发掘，并实现追责），它可以将一部分收入化为保险，存入保险池。保险池可用来奖励在Prometh里发现某个程序漏洞的安全分析程序，并可用于赔偿因为运行了有漏洞的程序而遭受损失的节点。保险模型主要面向数据与算力提供方，该方可在获得收益的同时，可选择将部分收益转为保险，以弥补未被及时发现的漏洞对本地数据或算力平台带来的安全风险。保险Token基金同时可以用于作为漏洞发现者的奖励，进而构造出一套良性循环的网络空间安全生态。
+**Prometh社区** Prometh框架为了实现应用程序的可溯源构建与自动化安全分析，也需要号召社区的力量，通过贡献算力、安全验证程序等，为程序的安全性背书。因此在Prometh体系构建的初期，也需要利用挖矿机制，实现对志愿者的激励。具体而言，即允许开发者或安全分析人员在对软件源码（或中间态的二进制文件）实施安全验证的自动化分析、测试程序时，能有机会获得新生成的Token。同时，由于Prometh无法保障复杂的原生应用绝无漏洞，但其强审计及可信溯源体系可协助潜在漏洞可在有限时间内被发掘且实现追责。因此程序的执行者（即Leviatom第三层算力节点）可以将一部分收入化为保险，存入保险合约。保险合约可用来奖励在Prometh生态中发现某个程序漏洞的安全分析程序，并可用于赔偿因为运行了有潜在漏洞的Prometh程序而遭受损失的Leviatom节点。因此，保险模型主要面向数据与算力提供方，该方可在获得收益的同时，可选择将部分收益转为保险，以弥补未被及时发现的漏洞对本地数据或算力平台带来的安全风险。保险合约中的Token同时可以用于作为漏洞发现者的奖励，进而构造出一套良性循环的网络空间安全生态。
 
 **MagCarta社区** MagCarta合约在其Consensus调用中通过制定PRICE_STRATEGY实现了对Leviatom算力与Prometh程序的付费。此交易方式将成为挖矿结束后的主要Token流转驱动力。
 
-更为详尽的TRIAS生态Token经济模型，Token分配模型等将在Token经济模型白皮书中做详尽阐述。
+更为详细的TRIAS生态Token经济模型，以及Token分配模型等，将在TRIAS的Token经济模型白皮书中做详尽阐述。
 
 # 7.	团队介绍
 
@@ -626,7 +624,7 @@ TRIAS用三方面的Token激励机制，实现了对Leviatom网络的可信算�
  
 # 8.	路线图
 
-**2009 Q4,**	 SCOA论文发表，首次提出可信软件构建体系，为Prometh奠定理论基础；
+**2009 Q4,** SCOA论文发表，首次提出可信软件构建体系，为Prometh奠定理论基础；
 
 **2011 Q4,** RepCloud论文发表，首次提出基于图算法的可信证实协议，与Gossip协议，为Leviatom与HCGraph奠定理论基础；
 
@@ -656,7 +654,7 @@ TRIAS用三方面的Token激励机制，实现了对Leviatom网络的可信算�
 
 # 附录：已发表论文
 
-Leviatom：
+**Leviatom：**
 
 [1] RepCloud: Attesting to Cloud Service Dependency 
 
@@ -670,7 +668,7 @@ Leviatom：
 
 **Anbang Ruan,** Andrew Martin. Proceeding of STC’11 The Sixth ACM Workshop on Scalable Trusted Computing. Chicago, IL, USA, Oct. 2011.
 
-Prometh：
+**Prometh：**
 
 [4] Towards a Source-Code Oriented Attestation
 
@@ -684,7 +682,7 @@ Liang Gu, Yao Guo, **Anbang Ruan,** Qingni Shen, Hong Mei. In Proceedings of ACS
 
 Liang Gu, **Anbang Ruan,** Yao Guo, Qingni Shen, Xiangqun Chen. Poster session of ACSAC09, Nov 2009.
 
-Trias Politica （Seperation-of-Powers）：
+**Trias Politica （Seperation-of-Powers）：**
 
 [7] A Separation-of-Powers Model for a Trustworthy and Open Cloud Computing Ecosystem 
 

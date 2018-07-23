@@ -1,3 +1,20 @@
+<!-- TOC -->
+
+- [1. Introduction](#1-introduction)
+- [2. Leviatom](#2-leviatom)
+    - [2.1.Design](#21design)
+    - [2.2.HCGraph](#22hcgraph)
+    - [2.3.Features](#23features)
+- [3. Prometh](#3-prometh)
+- [4. MagCarta](#4-magcarta)
+- [5. Token Economy](#5-token-economy)
+- [6. Team and Partners](#6-team-and-partners)
+    - [6.1.Founding Team Members](#61founding-team-members)
+    - [6.2.Core Partners](#62core-partners)
+- [7. Road Maps](#7-road-maps)
+- [8. Published Papers](#8-published-papers)
+
+<!-- /TOC -->
 # 1. Introduction
 The IAS Machine, born in the 1950s, represents a new height of human intelligence. Its Von Neumann Architecture has also become the cornerstone of contemporary information technology. With the past 60 years’ rapid advancement, especially with the breakthroughs in Cloud Computing, Big Data, IoTs, and AI technologies in last 10 years, IAS will be evolving to its new form: Intelligent Autonomous Systems. The new IAS machine will become an indispensable infrastructure for human society, especially when they are carrying our daily life. Consequently, the crisis in lacking trust to them will seriously affect our society’s stability. Trusting machines will become a new fundamental need for humanity in the near future. Building the Trustworthy and Reliable IAS (TRIAS) will be the ultimate goal of project Trias.
 
@@ -60,7 +77,7 @@ Trias aims at enabling a much wider range of usage scenarios, as it targets at b
 5. **Trustworthy Cloud Computing Platform.** Leviatom creates a union of trusted computing platforms, which can act as a global-scale cloud computing platform. Prometh implements the development framework and application distribution channel (or the Appstore) for this cloud platform, and MagCarta implements the SaaS logic to connect and schedule the Prometh apps. This ubiquitous cloud platform links the small public clouds around the world, who do not have enough scale to convince more customers. Trias provides them with trustworthiness endorsement, and further implements a cross-border unified resource sharing, scheduling and billing.
 
 # 2. Leviatom
-## 2.1.	Design
+## 2.1.Design
 Most consensus algorithms are blamed for their inefficiency. It is mainly caused by the fact that any single block of transactions requires a consensus to be reached among a huge number of “stranger” voting nodes. As the voting nodes do not have pre-exist trust relationship, any consensus is in fact a trust building process from scratch for an extensive large amount of entities. This incurs significant network latency and computation complexity. 
 
 Instead of layering consensus acceleration techniques above the consensus layer, such as the Layer 1 or Layer 2 improvements, Leviatom targets at the performance issues by digging 1 layer “below” the consensus layer: a Layer -1 enhancement. Layer -1 focuses at constructing trust relationship among the voting nodes. Its main goal is to identify the set of nodes who possess the greatest difficulties to “tell a lie”, i.e. the difficulties to execute unexpected programs without being identified. 
@@ -79,7 +96,7 @@ With this matrix defined, Leviatom only need to choose a small number of nodes w
 
 Leviatom can further implement a trustworthy node selection mechanism to support the upper layer service, such as the consensus layer services of third-party public blockchains, in which case the public chains run as a Dapp on Leviatom’s Layer -1 network. More importantly, it supports the MagCarta smart contract’s “consensus” call, which distributes Prometh Applications on the chosen Levaitom nodes. This will be discussed in Chapter 3 and 4. Leviatom’s core algorithm is called the Heterogeneous Consensus Graph (HCGraph), which is described and evaluated in the following sections.
 
-## 2.2.	HCGraph
+## 2.2.HCGraph
 HCGraph is backed by Trias founding team’s research in the System Security group at University of Oxford since 2011 [1,2,3]. It integrates Heterogeneous TEE technologies (Trusted Execution Environment, includes Intel SGX, Intel TXT, ARM TrustZone, TCG TPM, etc.) and graph computation algorithms to achieve fast attestations among a large-scale network of distributed nodes. 
 
 The basic idea of the HCGraph is to enforce mutual attestations and gossip protocols among nodes, so that they collaboratively construct a web-of-trust, i.e. the Leviatom Network. The connections among each node on the web represent the nodes’ mutual attestation relationship. The strength of the connections is modelled to reflect the intensity of their mutual-attestations. This intensity represents how often a node’s integrity is examined by its peer. Therefore, by tracing the connections and evaluating the strength values, a node is able to deduce the integrity of another without performing direct attestation to it. 
@@ -114,7 +131,7 @@ The combination of these three gossip strategies achieves both quick information
 
 Detailed algorithms and evaluations can be found in [1,2,3], and more experiment results will be published in the technical whitepaper.
 
-## 2.3.	Features
+## 2.3.Features
 - **Efficient Consensus（>100,000 TPS in one shard）：** Trias rapidly locates the most trustworthy nodes to enforce the consensus logic. This allows only a small set up node to participate in making consensus, and therefore significantly increase consensus speed;
 
 - **High Stability（Resistant to near 90% malicious collaborative）：**  Based on HCGraph, Trias builds a small-world network between nodes. This network ensures that even if 90% nodes are removed from the network, it is still connected, which means there still exist at least an attestation path between any two remaining nodes; 
@@ -152,7 +169,7 @@ With this iterative procedure, Prometh ultimately creates a decentralised tracea
 
 More details in design and implementations of Prometh and the TBS will be illustrated in a dedicated technical whitepaper.
 
-# 4.	MagCarta
+# 4. MagCarta
 MagCarta is a Turing Complete smart contract description language. MagCarta schedules and coordinates Prometh applications on the Leviatom network. MagCarta can be roughly regarded as a Bash script in Linux environment, which implements the most basic program logic and further invokes other Linux programs for more complex functionalities. Moreover, MagCarta distributes rewards to programs, computations and data providers. 
 Each MagCarta smart contract is defined by a set of declarations, which specifies the compute, programs, and data that will be referenced by the smart contract codes. Transactions are also defined to represent the input data for the contract.
 
@@ -243,7 +260,7 @@ Meanwhile, Prometh programs can also implement the data collection logic, with t
 # 5. Token Economy
 
 # 6. Team and Partners
-## 6.1.	Founding Team Members
+## 6.1.Founding Team Members
 **RUAN, Anbang, CEO** Founder & CEO of Octa Innovations, Ph.D (Oxford), MSc (Peking University). Former Research Associate in Trusted Cloud from the Oxford e-Research Center (OeRC). More than 10-years research experience in Trusted Computing, Trusted Cloud Platform, Cloud Computing Security and Virtualized Platform Security. Led and attended several European research projects, funded by the EPSRC, FP7 and the Innovate UK. Served as the reviewer in Trusted Cloud for the Journal of ACM. 
 
 **WEI, Ming，CTO**, Co-founder & CTO of Octa Innovations, Ph.D. and MSc (Peking University). Former China Aerospace Software R&D Center Senior Architect, Siemens Academy Engineer. Years of software development and management experience in cloud computing, AI, embedded projects, etc. In Octa Innovations, he hosted and developed DASO private chain and consortium blockchain, and continuous immune system’s security framework to solve the users’ data center security problems. It achieves 100,000 TPS data storage security applications’ scenario requirements. There are more than ten papers and patents.
@@ -260,7 +277,7 @@ Meanwhile, Prometh programs can also implement the data collection logic, with t
 
 **CHEN, Jian，Chinese Market Development** Marketing Director in Octa Innovations, used to worked for NetEase and 360, etc. 10 years of marketing experience, responsible for the marketing objections of NetEase games, Youdao search, Youdao dictionary and 360.
 
-## 6.2.	Core Partners
+## 6.2.Core Partners
 **Octa Innovations, Ltd., P.R.C.**
 
 Octa Innovations will provide technical, research and marketing support for Trias. Its core members are mainly from Oxford University and Peking University, and top tech companies such as Microsoft, Alibaba, DiDi etc., with strong technical strength and years of business or technical development experience in information security-related fields. Octa Innovations is one of the earliest security solution providers to integrate trusted computing and blockchain technology in China. It has successfully completed many major projects in banking, securities, government affairs, etc., with excellent social and economic effects.

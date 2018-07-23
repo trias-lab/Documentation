@@ -1,3 +1,8 @@
+# Trias: Rooting Trust in Machines with a Consensus-Oriented Computing Infrastructure
+
+## v1.0    
+## 2018-7-23
+
 <!-- TOC -->
 
 - [1. Introduction](#1-introduction)
@@ -258,6 +263,22 @@ The consensus call allows MagCarta contract developers to delegate complex busin
 Meanwhile, Prometh programs can also implement the data collection logic, with the trustworthy nodes selected by the Leviatom network, the data collector’s behaviours will be genuinely executed. This guarantees the trustworthiness of the data before they are submitted to the blockchain. More detailed designs and implementations will be given in a separated technical whitepaper. 
 
 # 5. Token Economy
+
+On Leviatom network, a node can choose to act in one or many in three roles: 
+
+1) Verifiers, who continuously and repeatedly examining the trustworthiness of the surrounding nodes by initiating TEE-oriented verifications to them. They also carry the duty of node discovery. This repeatedly verifications constitute the basic heartbeat of Leviatom, and should be encouraged and rewareded. Leviatom thus implements the "verification as mining" mechanisms, so that the frequent verfication computing power contributors will be allocated tokens periodically.
+
+2) Routers, who collect the verification data from the verifiers and disseminate it to other peers. Routers utilise the gossip algorithms to construct the web-of-trust and help determining the "Conspiracy Breaching" model for each node. Routers also help to identify the Leviatom nodes who have specified properties, such trust value, software properties, dat possessions, etc. Routers form the backbone of Leviatom network, they should also get rewarded with "routing as mining".
+
+3) Executers, who execute the Prometh applications as scheduled by the MagCarta contract. The MagCarta's consensus call specifies how the executers will get rewarded, as long as its returned values satisfy the consensus strategy. Since the its execution rights are obtained by contributions in compute power, storages, or bandwidths from verifiers and routers, executers will have to reward these contributions with part of its earned tokens. This mechanism is call "execution as gas" and "verification as gas". 
+
+Prometh applications also the paticipation of the community for verifying the genuine behaviours of smart contracts or native general-purpose applications. Therefore, in the early stage of Prometh system, it is necessary to use the mining mechanism to motivate volunteers. Specifically, developers or security analysts can get new-generated Tokens when performing program-tests and automated analysis of verifications to software source codes (or intermediate binary files).
+
+Meanwhile, Prometh can't guarantee complex native applications to have zero vulnerabilities. Its strong audit and trusted traceability system facilitate potential vulnerabilities be discovered and counteracted within a limited time. In this case, the executors (i.e. Leviatom's third-layer computing power nodes) can convert partial rewards into insurance and deposit it into insurance contracts. 
+
+Insurance contracts can reward security analysis programs that find program vulnerabilities in Prometh ecosystem. The insurance also compensates Leviatom nodes that get losses due to running potentially vulnerable Prometh programs. Therefore, insurance model can target at data or computing power providers. They can choose to) convert partial rewards into insurance to compensate for the undiscovered security risks of local data or computing platforms. Tokens of insurance contracts can be used as rewards for vulnerabilities’ finders, thus building a virtuous circle of cyberspace security ecology.
+
+A more detailed Trias token system and potential economic model will be illustrated in much more details in a separated Token Economics White Paper.
 
 # 6. Team and Partners
 ## 6.1.Founding Team Members

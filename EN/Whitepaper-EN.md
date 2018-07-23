@@ -1,6 +1,6 @@
 # Trias: Rooting Trust in Machines with a Consensus-Oriented Computing Infrastructure
 
-###2018-7-23
+2018-7-23
 
 ## v1.0       
 

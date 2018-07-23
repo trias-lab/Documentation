@@ -1,13 +1,17 @@
-# 1.	Introduction
+# 1. Introduction
 The IAS Machine, born in the 1950s, represents a new height of human intelligence. Its Von Neumann Architecture has also become the cornerstone of contemporary information technology. With the past 60 years’ rapid advancement, especially with the breakthroughs in Cloud Computing, Big Data, IoTs, and AI technologies in last 10 years, IAS will be evolving to its new form: Intelligent Autonomous Systems. The new IAS machine will become an indispensable infrastructure for human society, especially when they are carrying our daily life. Consequently, the crisis in lacking trust to them will seriously affect our society’s stability. Trusting machines will become a new fundamental need for humanity in the near future. Building the Trustworthy and Reliable IAS (TRIAS) will be the ultimate goal of project Trias.
 
 The risks of relying on untrusted machines have become significant. However, for the most of time, we trust the machines by default: 
 
--	Computers and the Internet significantly boost the efficiency of our work. However, untrusted applications can lead to data leaking or tampering;
+- Computers and the Internet significantly boost the efficiency of our work. However, untrusted applications can lead to data leaking or tampering;
+
 - Mobile phones meet our basic daily communication and entertainment needs. However, untrusted mobile apps are illegally collecting our personal data and infringing our personal privacy;
--	Smart medical machines identify pathology, diagnose serious illnesses, and perform surgery with robotic arms. However, untrusted analysis and control-procedures will lead to privacy leaking and may even threaten patients’ lives;
--	Smart home products play the role of housekeepers, cleaners, chefs, or pets, etc. However, untrusted systems will help intruders to peep or control our lives;
--	Wearables, industrial intelligence, transportation infrastructures, and smart city infrastructures will also be machine-controlled. Untrusted systems will put our society in chaos.
+
+- Smart medical machines identify pathology, diagnose serious illnesses, and perform surgery with robotic arms. However, untrusted analysis and control-procedures will lead to privacy leaking and may even threaten patients’ lives;
+
+- Smart home products play the role of housekeepers, cleaners, chefs, or pets, etc. However, untrusted systems will help intruders to peep or control our lives;
+
+- Wearables, industrial intelligence, transportation infrastructures, and smart city infrastructures will also be machine-controlled. Untrusted systems will put our society in chaos.
 
 Apple’s ecosystem sets a good example of implementing relatively trustworthy and reliable hardware and software systems. Apple employs secure hardware to strictly control the bootloading process of its operating system and applications. Apple devices’ operating systems are close-sourced and enforced with strict security checks. For third-party developed and maintained applications, Apple enforces a very centralized way to control the kinds of software to run on its platforms. All applications must be certified and tested by the AppStore. They are also required to develop in Apple’s programming language and implement their strictly controlled APIs. In this way, Apple mandates most critical aspects to provide customers with a secure and closed ecosystem. 
 
@@ -17,16 +21,21 @@ With the development of the blockchain technologies, the decentralized computati
 
 Smart contracts pioneered a way to genuinely execute trustworthy applications. However, implementing general-purpose applications on common computation platforms, such as PCs, mobile, or IoT device, as smart contracts is a non-trivial task. Critical challenges should be considered:
 
--	**Inefficient Consensus.** Reaching consensus is a high-cost task. PoW requires substantial computing powers, which is consumed by inconsequent workloads.
--	**Heavy Redundancy.** Blockchain platform implements undeniable smart contracts operations by enforcing high redundancy. It will result in serious computation waste and network congestion, hence seriously limiting the number of programs to run in parallel.
--	**Restrictive Interface.** Though many smart-contracts are Turing-complete, the functional library is far from enough. It will be extremely complex to implement the native applications’ service logic with the existing smart-contract APIs.
+- **Inefficient Consensus.** Reaching consensus is a high-cost task. PoW requires substantial computing powers, which is consumed by inconsequent workloads.
+
+- **Heavy Redundancy.** Blockchain platform implements undeniable smart contracts operations by enforcing high redundancy. It will result in serious computation waste and network congestion, hence seriously limiting the number of programs to run in parallel.
+
+- **Restrictive Interface.** Though many smart-contracts are Turing-complete, the functional library is far from enough. It will be extremely complex to implement the native applications’ service logic with the existing smart-contract APIs.
+
 - **Reconstruction and Migration.** As a brand-new programming paradigm, it would be extremely complex to migrate existing native applications to the smart contract platform. Re-implementing all the existing software on this new platform is laborious, if even possible, given the restrictive interface stated above.
+
 - **Trustworthy Data Collection.** The trustworthiness of the data collection procedure is critical to a blockchain-based system, as it would be meaningless to protect the integrity of tampered data. Human factors should be avoided as much as possible, but untrusted data collection application is also destructive.
+
 - **Data Privacy Preservation.** Blockchain is not designed to preserve privacy. In contrary, it ensures integrity by a high-degree of openness. Therefore, enforcing privacy preserving computation on blockchains is a particular challenging task.
 
 Trias’s vision is to build a trustworthy and reliable general-purpose computation infrastructure, where any system and software implement only expected behaviours. With Trias, we can root trust into machines with a firm assurance that the machines will deterministically “do what they are told to do”. Trias builds an all-platform-supported native-application-compatible smart contract execution platform, development framework and collaborating ecosystem. It has three subsystems:
 
-**Leviatom, a network of Trusted Execution Environments (TEEs) to achieve correct executions of general-purpose software. **Leviatom implements a Heterogeneous Consensus Graph (HCGraph) algorithm, which combines heterogeneous TEE technologies (TPM, TXT, Intel SGX, ARM TrustZone, etc.) and graph computing algorithms (similar to Hashgraph or DAGs). Heterogeneous TEEs allow Leviatom to identified misbehaving nodes rapidly while eliminating the dependency on any single technology’s provider, e.g. Intel SGX-based consensus requires a strong dependency on Intel’s centralised online verification service. Meanwhile, HCGraph’s gossip protocols significantly reduces the redundant TEE verifications, while preserving a scalable and robust web-of-trust.
+**Leviatom, a network of Trusted Execution Environments (TEEs) to achieve correct executions of general-purpose software.** Leviatom implements a Heterogeneous Consensus Graph (HCGraph) algorithm, which combines heterogeneous TEE technologies (TPM, TXT, Intel SGX, ARM TrustZone, etc.) and graph computing algorithms (similar to Hashgraph or DAGs). Heterogeneous TEEs allow Leviatom to identified misbehaving nodes rapidly while eliminating the dependency on any single technology’s provider, e.g. Intel SGX-based consensus requires a strong dependency on Intel’s centralised online verification service. Meanwhile, HCGraph’s gossip protocols significantly reduces the redundant TEE verifications, while preserving a scalable and robust web-of-trust.
 
 **Prometh, a traceable development framework to achieve decentralised functional and security properties definitions for general-purpose software.** Prometh genuinely records the critical information for a piece of software’s entire lifecycle on blockchain, including development, building, distributing etc. It further motivates the community to apply DevSecOps methodologies to enforce automatic or manual examinations or verifications on the recorded information for each critical step. This deduces the genuine properties of the software, which ensures any software to only implement intended behaviours. 
 
@@ -40,13 +49,17 @@ Trias, for the first time, proposes a Separation-of-Powers-based decentralizatio
 
 Trias aims at enabling a much wider range of usage scenarios, as it targets at bringing trust to general-purpose software platforms instead of only to the ledger-related applications: 
 
-1.	**Layer -1 enhancement to public blockchains.** Leviatom establishes trusted relationships among the consensus nodes of existing public chains. This pre-exist trusted relationships significantly reduces the complexity for reaching consensus. It is able to help the third-party chains to achieve more than 100,000 tps for a single shard and defend near 90% malicious collaborative attacks.
-2.	**Consensus-Oriented Enterprise Programming.** MagCarta allows DApps to delegates complex business logic and data collection procedure as trusted native applications. It further implements the consensus logic and ledger format without confining to any predefined fixed strategies by the chosen any underlying public blockchain. Consensus-Oriented programming allows DApps on Trias to implement much more complex general-purpose enterprise application logics; 
-3.	**Trusted operating systems and application ecosystem.** Trias eliminates easily malware and attacks, as Leviatom only allows the executions of white-listed applications and Prometh only allows the applications to implement white-listed behaviours; Therefore, Trias builds trustworthy Appstores for PCs, enterprise servers, mobile or IoT devices;
-4.	**Trustworthy Multi-Party Computation.** Trias achieves multi-party computations by exchanging applications instead of exchanging private data. Leviatom ensures the genuine executions of the third-party application, and Prometh enforces the application to implement predefined data processing contracts;
-5.	**Trustworthy Cloud Computing Platform.** Leviatom creates a union of trusted computing platforms, which can act as a global-scale cloud computing platform. Prometh implements the development framework and application distribution channel (or the Appstore) for this cloud platform, and MagCarta implements the SaaS logic to connect and schedule the Prometh apps. This ubiquitous cloud platform links the small public clouds around the world, who do not have enough scale to convince more customers. Trias provides them with trustworthiness endorsement, and further implements a cross-border unified resource sharing, scheduling and billing.
+1. **Layer -1 enhancement to public blockchains.** Leviatom establishes trusted relationships among the consensus nodes of existing public chains. This pre-exist trusted relationships significantly reduces the complexity for reaching consensus. It is able to help the third-party chains to achieve more than 100,000 tps for a single shard and defend near 90% malicious collaborative attacks.
 
-# 2.	Leviatom
+2. **Consensus-Oriented Enterprise Programming.** MagCarta allows DApps to delegates complex business logic and data collection procedure as trusted native applications. It further implements the consensus logic and ledger format without confining to any predefined fixed strategies by the chosen any underlying public blockchain. Consensus-Oriented programming allows DApps on Trias to implement much more complex general-purpose enterprise application logics; 
+
+3. **Trusted operating systems and application ecosystem.** Trias eliminates easily malware and attacks, as Leviatom only allows the executions of white-listed applications and Prometh only allows the applications to implement white-listed behaviours; Therefore, Trias builds trustworthy Appstores for PCs, enterprise servers, mobile or IoT devices;
+
+4. **Trustworthy Multi-Party Computation.** Trias achieves multi-party computations by exchanging applications instead of exchanging private data. Leviatom ensures the genuine executions of the third-party application, and Prometh enforces the application to implement predefined data processing contracts;
+
+5. **Trustworthy Cloud Computing Platform.** Leviatom creates a union of trusted computing platforms, which can act as a global-scale cloud computing platform. Prometh implements the development framework and application distribution channel (or the Appstore) for this cloud platform, and MagCarta implements the SaaS logic to connect and schedule the Prometh apps. This ubiquitous cloud platform links the small public clouds around the world, who do not have enough scale to convince more customers. Trias provides them with trustworthiness endorsement, and further implements a cross-border unified resource sharing, scheduling and billing.
+
+# 2. Leviatom
 ## 2.1.	Design
 Most consensus algorithms are blamed for their inefficiency. It is mainly caused by the fact that any single block of transactions requires a consensus to be reached among a huge number of “stranger” voting nodes. As the voting nodes do not have pre-exist trust relationship, any consensus is in fact a trust building process from scratch for an extensive large amount of entities. This incurs significant network latency and computation complexity. 
 
@@ -89,11 +102,11 @@ Direct trust values are propagated among the logical surrounding neighbours by e
 
 The gossip protocols allow each node to disseminate the trust relationship it gathers to other related nodes, so that redundant attestations will be reduced. There are three ways of gossip disseminations in the Leviatom Network: 
 
-1)	gossip about gossip: when the local node and a target node only have few common in their Kernels, the gossip about gossip protocol is initiated to directly exchange their Kernels. 
+1) gossip about gossip: when the local node and a target node only have few common in their Kernels, the gossip about gossip protocol is initiated to directly exchange their Kernels. 
 
-2)	gossip about reduced gossip; when the local node and a target node have much common in their Kernels, the gossip about reduced gossip protocol is initiated to only exchanged the complemental parts. 
+2) gossip about reduced gossip; when the local node and a target node have much common in their Kernels, the gossip about reduced gossip protocol is initiated to only exchanged the complemental parts. 
 
-3)	Targeted gossip; any time when a local node updates its Kernel, it identifies the set of target nodes who will be benefit from the updated data and sends the updated data package directly to the set of nodes.
+3) Targeted gossip; any time when a local node updates its Kernel, it identifies the set of target nodes who will be benefit from the updated data and sends the updated data package directly to the set of nodes.
 
 Gossip about gossip enforces batched exchanges of attestation relationship data, this allows a new node to quickly obtain the up-to-date global data. Reduced gossip allows two “not-too-closed” nodes to exchange their data in batches, while reducing networking overheads. Targeted gossip allows new attestation relationship information to quickly propagate among the “closely-related” nodes to without putting too much burden on the network traffic. 
 
@@ -107,19 +120,25 @@ Detailed algorithms and evaluations can be found in [1,2,3], and more experiment
 - **High Stability（Resistant to near 90% malicious collaborative）：**  Based on HCGraph, Trias builds a small-world network between nodes. This network ensures that even if 90% nodes are removed from the network, it is still connected, which means there still exist at least an attestation path between any two remaining nodes; 
 
 - **TEE-based Graph Computation：** HCGraph’s gossip protocols facilitates a small world network among the attesting nodes. It significantly increases any single consensus code’s cost to “lie”, and effectively reduces redundant calls to TEE capabilities. This will greatly increase the consensus efficiency while defending against high-degree malicious collusive. 
+
 - **Heterogeneous TEE Technology：** A single TEE technology would be centralized controlled by technology providers. For example, Intel SGX has a strong dependency on Intel’s centralised on-line verification service. HCGraph supports the attestations among different TEE technologies and creates a web-of-trust to constrain any single type of TEE-based system’s behaviour. It thus eliminates the single-point-of-failure in TEE technology.
+
 - **Heterogeneous TEE hosts：** Remote attestation protocols cannot identify hardware attacks against TEE. This provides an opportunity for malicious-mining nodes to destroy the network by attacking their one TEE hardware. HCGraph considers the heterogeneity of the selected nodes' environmental characteristics, such as physical locations, affiliations etc. This will greatly increase the difficulties for malicious organisations to destroy all participating consensus nodes’s TEE hardware.
+
 - **Optimized Gossip Protocol：** HCGraph utilizes a gossip about gossip protocol similar to the HashGraph to achieve efficient trustworthiness propagation. HCGraph further introduces gossip about reduced gossip and targeted Gossip to optimize the transfer traffic.
+
 - **Dynamic Election Based on Trust Relationship：** HCGraph constructs the global ‘Conspiracy Breaching’ model according to the trust relationship among mutually attesting node. This embodies a real-time coded node selection in accordance to the nodes’ past behaviours. It eliminates the human factors as in the DPOS, while preserving high throughput and low latency.
 
-# 3.	Prometh
+# 3. Prometh
 Two critical challenges arise when we interact with a software system: whether the software implements correct behaviours, and whether the software’s behaviours are correctly enforced. The second challenge is addressed by the Leviatom Network, which identifies and immediately eliminates the nodes who execute the wrong software or load the wrong components to support the given software. Leviatom also provides the “Conspiracy Breaching” value to indicate the trustworthiness of the selected node. This gives the MarCarta Contract a reference for determining the consensus strategy.
 
 The first challenge is addressed by the Prometh framework. It aims at identifying the fault behaviours embed inside the software itself. To ensure a piece of software to only carry expected behaviours, all the procedures of its full lifecycle should be considered. Especially the most critical ones as:
 
-1.	During development, the source codes of the target software may be tampered with to include malicious behaviours. Backdoor codes might be inserted into the source codes and remain hidden. Unintended or deliberately software bugs may also exist, which will result in targeted 0-day exploits to get instantiated;
-2.	During building and packaging procedures, malicious binary codes may be injected into the correctly compiled object files. This might be caused by a fault complier which generates malicious codes. It might also be caused by a fault linker which substitutes the correct object files with malicious ones. The host operating system might also substitute the object files at the filesystem level.
-3.	During the delivery and installation, the binary codes of the target software might be substituted or patched with malicious codes. This might occur during the transmission of the software package. During installation, the extracted binary codes or configuration files might also be changed maliciously.
+1. During development, the source codes of the target software may be tampered with to include malicious behaviours. Backdoor codes might be inserted into the source codes and remain hidden. Unintended or deliberately software bugs may also exist, which will result in targeted 0-day exploits to get instantiated;
+
+2. During building and packaging procedures, malicious binary codes may be injected into the correctly compiled object files. This might be caused by a fault complier which generates malicious codes. It might also be caused by a fault linker which substitutes the correct object files with malicious ones. The host operating system might also substitute the object files at the filesystem level.
+
+3. During the delivery and installation, the binary codes of the target software might be substituted or patched with malicious codes. This might occur during the transmission of the software package. During installation, the extracted binary codes or configuration files might also be changed maliciously.
 
 Prometh solves the software security issues by firstly recording the critical information (or its undeniable identification) of all the critical steps of a software’s full life-cycle on a distributed ledger. It then encourages a community to iteratively evaluate whether each step is correctly executed. Security verification methods will also be enforced on the artefacts produced by each procedure, such as the source codes, object files, binary files, package files, etc. These methods will iteratively dig the security and functional implications from the artefacts, generating a clearer profile for a target application. The following figure depicts the general procedures:
 
@@ -221,9 +240,9 @@ The consensus call allows MagCarta contract developers to delegate complex busin
 
 Meanwhile, Prometh programs can also implement the data collection logic, with the trustworthy nodes selected by the Leviatom network, the data collector’s behaviours will be genuinely executed. This guarantees the trustworthiness of the data before they are submitted to the blockchain. More detailed designs and implementations will be given in a separated technical whitepaper. 
 
-# 5.	Token Economy
+# 5. Token Economy
 
-# 6.	Team and Partners
+# 6. Team and Partners
 ## 6.1.	Founding Team Members
 **RUAN, Anbang, CEO** Founder & CEO of Octa Innovations, Ph.D (Oxford), MSc (Peking University). Former Research Associate in Trusted Cloud from the Oxford e-Research Center (OeRC). More than 10-years research experience in Trusted Computing, Trusted Cloud Platform, Cloud Computing Security and Virtualized Platform Security. Led and attended several European research projects, funded by the EPSRC, FP7 and the Innovate UK. Served as the reviewer in Trusted Cloud for the Journal of ACM. 
 
@@ -250,7 +269,7 @@ Octa Innovations will provide technical, research and marketing support for Tria
 
 The laboratory will rely on Octa Innovations to provide Trias with innovative research capabilities in TEE, graph computation, and trusted software construction. The laboratory is jointly built by the School of Software and Microelectronics in Peking University and Octa Innovations, aiming to achieve innovative R&D and industrial development of trusted technologies, as trusted computing, reputation systems, and blockchain, etc. Its research team includes 4 professors, 12 doctoral students, and more than 20 master students.
 
-# 7.	Road Maps
+# 7. Road Maps
 **2017 Q2**, At Cloud Computing and Big Data Security Forum of the Guiyang Big Data Expo 2017, Dr Anbang Ruan presented for the first time the heterogeneous consensus protocol, which integrates trusted computing, graph algorithm, and blockchain; 
 
 **2017 Q3**, The joint innovative laboratory of Octa Innovations and Peking University was established. The design concept and technical route of the Heterogeneous Consensus Graph were firstly proposed; 
@@ -271,7 +290,7 @@ The laboratory will rely on Octa Innovations to provide Trias with innovative re
 
 **2019 Q2**, Mainnet v1.0 launches. 
 
-# 8.	Published Papers
+# 8. Published Papers
 Leviatom：
 
 **[1] RepCloud: Attesting to Cloud Service Dependency**

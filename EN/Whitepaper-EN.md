@@ -113,10 +113,8 @@ The basic idea of the HCGraph is to enforce mutual attestations and gossip proto
 
 The above figure depicts the Leviatom’s conceptual model. A node attests the integrity of other nodes. It collects the attestation results, which are modelled as its Direct Trust to a target node and is stored in its local database, the Kernel. The direct trust is defined as follows:
 
-<div align=center>
- <img src="./img/2.png" /> 
-</div>
- 
+<img src="https://latex.codecogs.com/gif.latex?\inline&space;D_{i,j}\left&space;(&space;t&space;\right&space;)=&space;\sum_{t_{n}\in&space;AH_{j}\left&space;(&space;t&space;\right&space;)}&space;2^{k-\Delta&space;\left&space;(&space;t,t_{n}&space;\right&space;)}" title="D_{i,j}\left ( t \right )= \sum_{t_{n}\in AH_{j}\left ( t \right )} 2^{k-\Delta \left ( t,t_{n} \right )}" />
+
 Di,j(t) is calculated by combining the timestamps maintained in the attestation history, which records the attestation tickets towards the neighbour (Nj). It is an integer interpreted as a bitmap vector with the length of k. Each bit represents a timestamp one step away from its higher adjacent bit, and the highest bit indicates the time t. A bit is set to 1 when an attestation is performed at the step it stands for. Thus, the direct trust, calculated as above, reflects all the recent successful attestations up to time t. AHj(t) denotes the attestation history for node Nj at time t. As a step is defined as minimum attestation interval, different timestamps t in AH do not indicate a same bit index. We can thus safely use summation instead of bitwise OR (“|”) for setting the corresponding bits. 
 
 This definition allows two evaluation values be compared. The larger one indicates the more recent an attestation is performed, and hence indicates a higher trust credibility. This property is used for modelling the Transitive Trust. 

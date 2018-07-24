@@ -103,7 +103,7 @@ With this matrix defined, Leviatom only need to choose a small number of nodes w
 Leviatom can further implement a trustworthy node selection mechanism to support the upper layer service, such as the consensus layer services of third-party public blockchains, in which case the public chains run as a Dapp on Leviatom’s Layer -1 network. More importantly, it supports the MagCarta smart contract’s “consensus” call, which distributes Prometh Applications on the chosen Levaitom nodes. This will be discussed in Chapter 3 and 4. Leviatom’s core algorithm is called the Heterogeneous Consensus Graph (HCGraph), which is described and evaluated in the following sections.
 
 ## 2.2.HCGraph
-HCGraph is backed by Trias founding team’s research in the System Security group at University of Oxford since 2011 [1,2,3]. It integrates Heterogeneous TEE technologies (Trusted Execution Environment, includes Intel SGX, Intel TXT, ARM TrustZone, TCG TPM, etc.) and graph computation algorithms to achieve fast attestations among a large-scale network of distributed nodes. 
+HCGraph is backed by Trias founding team’s research in the System Security group at University of Oxford since 2011 [[1,2,3]](#8-published-papers). It integrates Heterogeneous TEE technologies (Trusted Execution Environment, includes Intel SGX, Intel TXT, ARM TrustZone, TCG TPM, etc.) and graph computation algorithms to achieve fast attestations among a large-scale network of distributed nodes. 
 
 The basic idea of the HCGraph is to enforce mutual attestations and gossip protocols among nodes, so that they collaboratively construct a web-of-trust, i.e. the Leviatom Network. The connections among each node on the web represent the nodes’ mutual attestation relationship. The strength of the connections is modelled to reflect the intensity of their mutual-attestations. This intensity represents how often a node’s integrity is examined by its peer. Therefore, by tracing the connections and evaluating the strength values, a node is able to deduce the integrity of another without performing direct attestation to it. 
 
@@ -113,7 +113,9 @@ The basic idea of the HCGraph is to enforce mutual attestations and gossip proto
 
 The above figure depicts the Leviatom’s conceptual model. A node attests the integrity of other nodes. It collects the attestation results, which are modelled as its Direct Trust to a target node and is stored in its local database, the Kernel. The direct trust is defined as follows:
 
-<img src="https://latex.codecogs.com/gif.latex?\inline&space;D_{i,j}\left&space;(&space;t&space;\right&space;)=&space;\sum_{t_{n}\in&space;AH_{j}\left&space;(&space;t&space;\right&space;)}&space;2^{k-\Delta&space;\left&space;(&space;t,t_{n}&space;\right&space;)}" title="D_{i,j}\left ( t \right )= \sum_{t_{n}\in AH_{j}\left ( t \right )} 2^{k-\Delta \left ( t,t_{n} \right )}" />
+<div align=center>
+    <img src="https://latex.codecogs.com/gif.latex?\inline&space;D_{i,j}\left&space;(&space;t&space;\right&space;)=&space;\sum_{t_{n}\in&space;AH_{j}\left&space;(&space;t&space;\right&space;)}&space;2^{k-\Delta&space;\left&space;(&space;t,t_{n}&space;\right&space;)}" title="D_{i,j}\left ( t \right )= \sum_{t_{n}\in AH_{j}\left ( t \right )} 2^{k-\Delta \left ( t,t_{n} \right )}" />
+</div>
 
 Di,j(t) is calculated by combining the timestamps maintained in the attestation history, which records the attestation tickets towards the neighbour (Nj). It is an integer interpreted as a bitmap vector with the length of k. Each bit represents a timestamp one step away from its higher adjacent bit, and the highest bit indicates the time t. A bit is set to 1 when an attestation is performed at the step it stands for. Thus, the direct trust, calculated as above, reflects all the recent successful attestations up to time t. AHj(t) denotes the attestation history for node Nj at time t. As a step is defined as minimum attestation interval, different timestamps t in AH do not indicate a same bit index. We can thus safely use summation instead of bitwise OR (“|”) for setting the corresponding bits. 
 
@@ -123,17 +125,17 @@ Direct trust values are propagated among the logical surrounding neighbours by e
 
 The gossip protocols allow each node to disseminate the trust relationship it gathers to other related nodes, so that redundant attestations will be reduced. There are three ways of gossip disseminations in the Leviatom Network: 
 
-1) gossip about gossip: when the local node and a target node only have few common in their Kernels, the gossip about gossip protocol is initiated to directly exchange their Kernels. 
+1. Gossip about gossip: when the local node and a target node only have few common in their Kernels, the gossip about gossip protocol is initiated to directly exchange their Kernels. 
 
-2) gossip about reduced gossip; when the local node and a target node have much common in their Kernels, the gossip about reduced gossip protocol is initiated to only exchanged the complemental parts. 
+2. Gossip about reduced gossip: when the local node and a target node have much common in their Kernels, the gossip about reduced gossip protocol is initiated to only exchanged the complemental parts. 
 
-3) Targeted gossip; any time when a local node updates its Kernel, it identifies the set of target nodes who will be benefit from the updated data and sends the updated data package directly to the set of nodes.
+3. Targeted gossip: any time when a local node updates its Kernel, it identifies the set of target nodes who will be benefit from the updated data and sends the updated data package directly to the set of nodes.
 
 Gossip about gossip enforces batched exchanges of attestation relationship data, this allows a new node to quickly obtain the up-to-date global data. Reduced gossip allows two “not-too-closed” nodes to exchange their data in batches, while reducing networking overheads. Targeted gossip allows new attestation relationship information to quickly propagate among the “closely-related” nodes to without putting too much burden on the network traffic. 
 
 The combination of these three gossip strategies achieves both quick information propagation rate with low networking overheads. With transitive trust relationship gathered by remote attestations and gossip protocols, HCGraph further builds a‘Conspiracy Breaching’ model for nodes to illustrate how intense a target node is attested by other nodes. This model helps locating the nodes who have the greatest ‘difficulties to lie’. Meanwhile, small world network algorithm improves the networks’ robustness. 
 
-Detailed algorithms and evaluations can be found in [1,2,3], and more experiment results will be published in the technical whitepaper.
+Detailed algorithms and evaluations can be found in [[1,2,3]](#8-published-papers), and more experiment results will be published in the technical whitepaper.
 
 ## 2.3.Features
 - **Efficient Consensus（>100,000 TPS in one shard）：** Trias rapidly locates the most trustworthy nodes to enforce the consensus logic. This allows only a small set up node to participate in making consensus, and therefore significantly increase consensus speed;
@@ -169,7 +171,7 @@ Prometh solves the software security issues by firstly recording the critical in
  
 The trusted building process starts when the developers pushed source codes to the repositories. Even though the development environment is untrusted, the integrity of the entire process is not affected, as the resulting source codes are easily audited and verified. Once the source codes are pushed, their identification data will be recorded on the distributed ledger. The security analytics procedure, running on Leviatom, will be triggered to fetch the source codes and run the verifications. Once the verification passes, the results are stored on the ledger, and the next procedure is triggered. The resulting identifications of the binary codes are pushed to the ledger, and the analytics process are invoked to examine the integrity of the compiling and linking procedures. 
 
-With this iterative procedure, Prometh ultimately creates a decentralised traceable software lifecycle, which allows users to interrogate the origin of any piece of software and examine their functional and security implications. Prometh’s core is a Trusted Building System (TBS) which implements a set of trusted transformation process. Its design and implementation are backed by Trias founding team’s research in the System Security group at Peking University since 2009 [4,5,6]. 
+With this iterative procedure, Prometh ultimately creates a decentralised traceable software lifecycle, which allows users to interrogate the origin of any piece of software and examine their functional and security implications. Prometh’s core is a Trusted Building System (TBS) which implements a set of trusted transformation process. Its design and implementation are backed by Trias founding team’s research in the System Security group at Peking University since 2009 [[4,5,6]](#8-published-papers). 
 
 More details in design and implementations of Prometh and the TBS will be illustrated in a dedicated technical whitepaper.
 
@@ -265,11 +267,11 @@ Meanwhile, Prometh programs can also implement the data collection logic, with t
 
 On Leviatom network, a node can choose to act in one or many in three roles: 
 
-1) Verifiers, who continuously and repeatedly examining the trustworthiness of the surrounding nodes by initiating TEE-oriented verifications to them. They also carry the duty of node discovery. This repeatedly verifications constitute the basic heartbeat of Leviatom, and should be encouraged and rewareded. Leviatom thus implements the "verification as mining" mechanisms, so that the frequent verfication computing power contributors will be allocated tokens periodically.
+1. **Verifiers**, who continuously and repeatedly examining the trustworthiness of the surrounding nodes by initiating TEE-oriented verifications to them. They also carry the duty of node discovery. This repeatedly verifications constitute the basic heartbeat of Leviatom, and should be encouraged and rewareded. Leviatom thus implements the "verification as mining" mechanisms, so that the frequent verfication computing power contributors will be allocated tokens periodically.
 
-2) Routers, who collect the verification data from the verifiers and disseminate it to other peers. Routers utilise the gossip algorithms to construct the web-of-trust and help determining the "Conspiracy Breaching" model for each node. Routers also help to identify the Leviatom nodes who have specified properties, such trust value, software properties, dat possessions, etc. Routers form the backbone of Leviatom network, they should also get rewarded with "routing as mining".
+2. **Routers**, who collect the verification data from the verifiers and disseminate it to other peers. Routers utilise the gossip algorithms to construct the web-of-trust and help determining the "Conspiracy Breaching" model for each node. Routers also help to identify the Leviatom nodes who have specified properties, such trust value, software properties, dat possessions, etc. Routers form the backbone of Leviatom network, they should also get rewarded with "routing as mining".
 
-3) Executers, who execute the Prometh applications as scheduled by the MagCarta contract. The MagCarta's consensus call specifies how the executers will get rewarded, as long as its returned values satisfy the consensus strategy. Since the its execution rights are obtained by contributions in compute power, storages, or bandwidths from verifiers and routers, executers will have to reward these contributions with part of its earned tokens. This mechanism is call "execution as gas" and "verification as gas". 
+3. **Executers**, who execute the Prometh applications as scheduled by the MagCarta contract. The MagCarta's consensus call specifies how the executers will get rewarded, as long as its returned values satisfy the consensus strategy. Since the its execution rights are obtained by contributions in compute power, storages, or bandwidths from verifiers and routers, executers will have to reward these contributions with part of its earned tokens. This mechanism is call "execution as gas" and "verification as gas". 
 
 Prometh applications also need the paticipation of the community for verifying the genuine behaviours of smart contracts or native general-purpose applications. This is achieved by implementing Prometh's component as MagCarta contracts, which ultimately specify the rewards for the selected Leviatom nodes, as long as the Prometh application's providers. Therefore, in the early stage of Prometh system, it is necessary to use the mining mechanism to motivate volunteers. Specifically, developers or security analysts can get mined Tokens when performing the Prometh's program testings and automated analysis of verifications for software source codes (or intermediate binary files).
 
@@ -326,7 +328,7 @@ The laboratory will rely on Octa Innovations to provide Trias with innovative re
 **2019 Q2**, Mainnet v1.0 launches. 
 
 # 8. Published Papers
-Leviatom：
+**Leviatom：**
 
 **[1] RepCloud: Attesting to Cloud Service Dependency**
 
@@ -340,7 +342,7 @@ Leviatom：
 
 **Anbang Ruan**, Andrew Martin. Proceeding of STC’11 The Sixth ACM Workshop on Scalable Trusted Computing. Chicago, IL, USA, Oct. 2011.
 
-Prometh：
+**Prometh：**
 
 **[4] Towards a Source-Code Oriented Attestation**
 
@@ -354,7 +356,7 @@ Liang Gu, Yao Guo, **Anbang Ruan**, Qingni Shen, Hong Mei. In Proceedings of ACS
 
 Liang Gu, **Anbang Ruan**, Yao Guo, Qingni Shen, Xiangqun Chen. Poster session of ACSAC’09, Nov 2009.
 
-Trias：
+**Trias：**
 
 **[7] A Separation-of-Powers Model for a Trustworthy and Open Cloud Computing Ecosystem**
 
